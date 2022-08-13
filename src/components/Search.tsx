@@ -82,7 +82,7 @@ const Search = ({ isArtist, isTrack }: SearchType) => {
         placeholder={`Masukkan kata kunci ${categoryTranslate}`}
       />
       {listOfItems.length > 0 && (
-        <div className="font-bold mt-4 text-2xl">
+        <div className="mt-4">
           Menampilkan 10 hasil pencarian teratas untuk "{keyword}"
         </div>
       )}
