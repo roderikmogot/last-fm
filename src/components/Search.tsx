@@ -71,7 +71,7 @@ const Search = ({ isArtist, isTrack }: SearchType) => {
           </Link>
         )}
       </div>
-      <div className="text-center font-bold text-xl md:text-3xl mt-10 mb-4">
+      <div className="font-bold text-xl md:text-3xl mt-10 mb-4">
         Cari {categoryTranslate}
       </div>
       <input
@@ -94,7 +94,7 @@ const Search = ({ isArtist, isTrack }: SearchType) => {
           listOfItems
             .slice(0, 10)
             .map((artist: SearchArtist, index: number) => (
-              <Item key={index} id={index} artistName={artist.name} />
+              <Item key={index} id={index} artistName={artist.name} url={artist.url} />
             ))}
         {isTrack &&
           listOfItems &&
@@ -106,6 +106,7 @@ const Search = ({ isArtist, isTrack }: SearchType) => {
                 id={index}
                 artistName={track.artist}
                 trackName={track.name}
+                url={track.url}
               />
             ))}
       </div>

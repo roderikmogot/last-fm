@@ -43,25 +43,42 @@ function App() {
         {topTracks &&
           topTracks.tracks.track
             .slice(0, 10)
-            .map(({ artist, name: trackTitle }: Track, index: number) => (
-              <Item
-                key={index}
-                id={index}
-                artistName={artist.name}
-                trackName={trackTitle}
-              />
-            ))}
+            .map(
+              (
+                { artist, name: trackTitle, url: trackUrl }: Track,
+                index: number
+              ) => (
+                <Item
+                  key={index}
+                  id={index}
+                  artistName={artist.name}
+                  trackName={trackTitle}
+                  url={trackUrl}
+                  useRanking
+                />
+              )
+            )}
       </div>
 
       {/* Top 10 Artists */}
-      <div className="mt-10 font-black text-2xl md:text-4xl">Top 10 Artists</div>
+      <div className="mt-10 font-black text-2xl md:text-4xl">
+        Top 10 Artists
+      </div>
       <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
         {topArtists &&
           topArtists.artists.artist
             .slice(0, 10)
-            .map(({ name: artistName }: Artist, index: number) => (
-              <Item key={index} id={index} artistName={artistName} />
-            ))}
+            .map(
+              ({ name: artistName, url: artistUrl }: Artist, index: number) => (
+                <Item
+                  key={index}
+                  id={index}
+                  artistName={artistName}
+                  url={artistUrl}
+                  useRanking
+                />
+              )
+            )}
       </div>
 
       <div className="w-fit mx-auto mt-10 mb-4">
