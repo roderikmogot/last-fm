@@ -4,6 +4,7 @@ import { useFetch } from "./useFetch";
 import Item from "../components/Item";
 import { SearchArtist } from "./types/SearchArtist";
 import { SearchTrack } from "./types/SearchTrack";
+import Button from "./Button";
 
 interface SearchType {
   isArtist?: boolean;
@@ -15,7 +16,8 @@ const DUMMY_SEARCH_PARAMS = "21931923";
 const Search = ({ isArtist, isTrack }: SearchType) => {
   const [keyword, setKeyword] = useState<string>("");
 
-  let category: string = isArtist ? "artist" : "track";
+  const category: string = isArtist ? "artist" : "track";
+  const categoryTranslate: string = isArtist ? "artis" : "lagu";
 
   let {
     data: searchItems,
@@ -54,29 +56,29 @@ const Search = ({ isArtist, isTrack }: SearchType) => {
 
   return (
     <div className="p-4">
-      <Link to="/">
-        <button className="px-4 py-2 bg-purple-500 text-white">Home</button>
-      </Link>
-      {isArtist && (
-        <Link to="/search_songs">
-          <button className="ml-4 px-4 py-2 bg-pink-500 text-white">
-            Cari lagu
-          </button>
+      <div className="flex flex-row items-center gap-4">
+        <Link className="w-full" to="/">
+          <Button isHome bgColor="bg-purple-500" />
         </Link>
-      )}
-      {isTrack && (
-        <Link to="/search_artists">
-          <button className="ml-4 px-4 py-2 bg-blue-500 text-white">
-            Cari artist
-          </button>
-        </Link>
-      )}
-      <div className="text-center font-bold text-2xl my-4">Cari {category}</div>
+        {isArtist && (
+          <Link className="w-full" to="/search_songs">
+            <Button isSearchSongs bgColor="bg-pink-500" />
+          </Link>
+        )}
+        {isTrack && (
+          <Link className="w-full" to="/search_artists">
+            <Button isSearchArtists bgColor="bg-blue-500" />
+          </Link>
+        )}
+      </div>
+      <div className="text-center font-bold text-xl md:text-3xl mt-10 mb-4">
+        Cari {categoryTranslate}
+      </div>
       <input
         onChange={(e) => handleInputChanges(e)}
         type="text"
         className="py-2 pl-4 mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
-        placeholder={`Masukkan kata kunci ${category}`}
+        placeholder={`Masukkan kata kunci ${categoryTranslate}`}
       />
       {listOfItems.length > 0 && (
         <div className="font-bold mt-4 text-2xl">
@@ -84,7 +86,7 @@ const Search = ({ isArtist, isTrack }: SearchType) => {
         </div>
       )}
       {!listOfItems.length && (
-        <div className="mt-4 text-lg">Menunggu masukkan input...</div>
+        <div className="mt-4 text-sm">Menunggu masukkan input...</div>
       )}
       <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
         {isArtist &&
