@@ -13,9 +13,9 @@ export const useFetch = (method: string, type: "top10" | "search", searchParam: 
     let url: string = ""
 
     if (type === "search") {
-      url = `http://ws.audioscrobbler.com/2.0/?method=${method}${searchParam}&api_key=${API_KEY}&format=json`
+      url = `https://ws.audioscrobbler.com/2.0/?method=${method}${searchParam}&api_key=${API_KEY}&format=json`
     } else {
-      url = `http://ws.audioscrobbler.com/2.0/?method=${method}&api_key=${API_KEY}&format=json`
+      url = `https://ws.audioscrobbler.com/2.0/?method=${method}&api_key=${API_KEY}&format=json`
     }
 
     const response = await fetch(url);
