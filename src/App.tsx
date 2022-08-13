@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Item from "./components/Item";
 import { TbBrandLastfm } from "react-icons/tb";
 import Button from "./components/Button";
+import ShowLoading from "./components/ShowLoading";
 
 function App() {
   const { data: topTracks, error: errorTopTracks } = useFetch(
@@ -23,7 +24,7 @@ function App() {
   }
 
   if (!topTracks || !topArtists) {
-    return <div>Loading...</div>;
+    return <ShowLoading />;
   }
 
   return (

@@ -5,6 +5,7 @@ import Item from "../components/Item";
 import { SearchArtist } from "./types/SearchArtist";
 import { SearchTrack } from "./types/SearchTrack";
 import Button from "./Button";
+import ShowLoading from "../components/ShowLoading"
 
 interface SearchType {
   isArtist?: boolean;
@@ -34,7 +35,7 @@ const Search = ({ isArtist, isTrack }: SearchType) => {
   }
 
   if (!searchItems) {
-    return <div>Loading...</div>;
+    return <ShowLoading />;
   }
 
   const listSearchForArtists = searchItems.results.artistmatches?.artist;
