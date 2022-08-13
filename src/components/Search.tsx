@@ -20,7 +20,7 @@ const Search = ({ isArtist, isTrack }: SearchType) => {
   const category: string = isArtist ? "artist" : "track";
   const categoryTranslate: string = isArtist ? "artis" : "lagu";
 
-  let {
+  const {
     data: searchItems,
     error,
     handler: searchHandler,

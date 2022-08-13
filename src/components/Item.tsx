@@ -7,8 +7,8 @@ interface ItemType {
 }
 
 const Item = ({ id, artistName, trackName, url, useRanking }: ItemType) => {
-  let isTop3: boolean = id < 3;
-  let hasArtistAndTrack: boolean = !artistName || !trackName;
+  const isTop3: boolean = id < 3;
+  const hasArtistAndTrack: boolean = !artistName || !trackName;
   return (
     <a
       href={url}
