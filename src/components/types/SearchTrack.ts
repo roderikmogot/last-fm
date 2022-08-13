@@ -1,5 +1,4 @@
 import type { Image } from "./Tracks";
-import type { Results } from "./SearchArtist";
 
 export interface SearchTrack {
   name: string;

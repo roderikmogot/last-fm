@@ -5,7 +5,7 @@ import type { SearchArtists } from "./types/SearchArtist";
 import type { SearchTracks } from "./types/SearchTrack";
 
 export const useFetch = (method: string, type: "top10" | "search", searchParam: string) => {
-  const API_KEY = process.env.REACT_APP_API_KEY;
+  const API_KEY = "3e2a786b100302b62e6e7f86f0886028";
   const [data, setData] = useState<TopTracks & TopArtists & SearchArtists & SearchTracks>();
   const [error, setError] = useState<string>("");
 
@@ -18,9 +18,7 @@ export const useFetch = (method: string, type: "top10" | "search", searchParam: 
       url = `http://ws.audioscrobbler.com/2.0/?method=${method}&api_key=${API_KEY}&format=json`
     }
 
-    const response = await fetch(
-      url
-    );
+    const response = await fetch(url);
 
     if (!response.ok) {
       setError("Terjadi error saat mengambil data!");
