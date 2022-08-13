@@ -39,7 +39,7 @@ function App() {
       </div>
 
       {/* Top 10 Artists */}
-      <div className="mt-10 font-black text-2xl md:text-4xl">Top 10 ƒTracks</div>
+      <div className="mt-10 font-black text-2xl md:text-4xl">Top 10 Tracks</div>
       <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
         {topTracks &&
           topTracks.tracks.track
