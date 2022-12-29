@@ -32,6 +32,7 @@ export const useFetch = (method: string, type: "top10" | "search", searchParam: 
 
   useEffect(() => {
     handler(searchParam);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [method]);
 
   return { data, error, handler };
